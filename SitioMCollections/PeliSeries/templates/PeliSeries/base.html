@@ -1,77 +1,79 @@
 {% load static %}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Movies Collection</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <!-- ESTILOS -->
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-        <!-- SCRIPTS -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> 
-        <script src="https://kit.fontawesome.com/dfdab27f6e.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="{% static 'js/funciones.js' %}"></script>
-        <script src="{% static 'js/bootstrap.js' %}"></script>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script> -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animaciones.css' %}">
 
-    <body>
-        <header class="ordenhead">
-            <!-- BOTON MENU -->
-            <div id="menu_bar">
-                <a href="#" class="bt_menu">
-                    <span class="icon-menu"></span>
-                </a>
+    <!--fuente roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&family=Josefin+Sans&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <!--#region Header -->
+        <header class="header">
+            <button class="btn">
+                <span class="icon">
+                    <a href="">
+                        <svg viewBox="0 0 175 80" width="40" height="40">
+                            <rect width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                            <rect y="30" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                            <rect y="60" width="80" height="15" fill="#f0f0f0" rx="10"></rect>
+                        </svg>
+                    </a>
+                </span>
+                <span class="text">MENU</span>
+            </button>
+            <div class="logo">
+                <img src="{% static 'img/LogoWeb MovieCollection(Header).png' %}" alt="ERROR" id="logomovc">                
             </div>
-            <img src="{% static 'img/LogoWeb MovieCollection(Header).png' %}" alt="ERROR" id="logomovc">
-            <nav class="menu">
+            <nav class="menu" id="corrige_padding">
                 <ul>
-                    {% block nav %}
-                    {% endblock %}
-                </ul>
-            </nav>
-            <a href="#" class="login">
-                <span class="icon-user"></span>            
-            </a>
-            <nav class="opc-user">
-                <ul>
-                    {% url 'mantenedor'  as mant %}
-                    {% url 'register'  as reg %}
-                    {% url 'login'  as log %}
-                    {% if user.is_authenticated %}
-                        <li><a href=""><span class="icon-user"></span>Usuario : {{user.username }}</a></li>
-                        {% if user.groups.all.0.name == "mantenedores" %}
-                            <li><a href="{% url 'mantenedor'%}" class="{% if request.get_full_path == mant %} opc-activ {% endif %}" >
-                                <span class="icon-list"></span> Administrar Contenido</a>
-                            </li>
-                        {% else %}
-                            <li  ><a href=""> <span class="icon-heart "></span> Contenido guardado</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'logout' %}" > <span class="icon-exit"></span> Cerrar Sesion</a></li>
-                    {% else %}
-                        <li><a href="{% url 'register' %}" class="{% if request.get_full_path == reg %} opc-activ {% endif %}"> 
-                            <span class="icon-user-plus"></span> Registrarse</a>
-                        </li>
-                        <li><a href="{% url 'login' %}" class="{% if request.get_full_path == log %} opc-activ {% endif %}"> 
-                            <span class="icon-enter"></span> Iniciar Sesion</a>
-                        </li>
-                    {% endif %} 
+                    {% url 'home'  as hm %}
+                    {% url 'peliculas'  as pel %}
+                    {% url 'series'  as ser %}
+                    {% url 'formulario'  as form %}
+                    {% comment %} "{% if request.get_full_path == hm %} activada {% endif %}" {% endcomment %}
+                    {% comment %} <li><a href="{% url 'home' %}" class="animation_nav actived">Inicio</a></li> {% endcomment %}
+
+                    <li>
+                        <a href="{% url 'home' %}" class="{% if request.get_full_path == hm %} animation_nav actived {% else %} animation_nav {% endif %}">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'peliculas' %}" class="{% if request.get_full_path == pel %} animation_nav actived {% else %} animation_nav {% endif %}">
+                            Peliculas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'series' %}" class="{% if request.get_full_path == ser %} animation_nav actived {% else %} animation_nav {% endif %}" >
+                            Series
+                        </a>
+                    </li>
+                    <!-- <li><a href="indexNoticias.html" class="animation_nav">Noticias</a></li> -->
+                    <li><a href="formulario.html" class="{% if request.get_full_path == form %} animation_nav actived {% else %} animation_nav {% endif %}">Contacto</a></li>
                 </ul>
             </nav>
         </header>
-        <div class="contenedor">
-           {% block content %}
-           {% endblock %}
-        </div>
-        <footer>
-            <section class="iconsweb">
-                <a href="#"><span class="icon-whatsapp"></span> </a>
-                <a href="#"><span class="icon-instagram"></span></a>
-                <a href="#"><span class="icon-facebook2"></span></a>
-            </section>
-            <p>© 2020 MOVIESCOLLECTION | TODOS LOS DERECHOS RESERVADOS</p>
+        <!--#endregion Header -->
+        <main class="contenido">
+            {% block main %}
+            {% endblock %}
+        </main>
+        <footer class="footer" id="corrige_padding_footer">
+            <p>© 2022 MOVIESCOLLECTION - TODOS LOS DERECHOS RESERVADOS</p>
+            <!-- <h1>Footer</h1> -->
         </footer>
-    </body>
+    </div>
+</body>
+
 </html>
