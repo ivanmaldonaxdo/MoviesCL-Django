@@ -130,7 +130,7 @@ body {
     /* background-image: url(../SVG/blurry-gradient-haikei.svg); */
     /* background-image: url("{% static 'blurry-gradient-haikei.svg' %}"); */
 
-    background-image: url("static/SVG/blurry-gradient-haikei.svg");
+    background-image: url(../SVG/blurry-gradient-haikei.svg);
     background-size: cover;
     display: grid;
     min-height: var(--min-altura);
