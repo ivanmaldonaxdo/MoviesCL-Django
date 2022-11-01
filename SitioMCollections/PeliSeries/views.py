@@ -5,16 +5,16 @@ from .forms import FormPeliserie,FormCarrousel,FormConsulta
 from .models import Categoria,Peliserie,Carousel,Usuario,Consulta
 # Create your views here.
 def indexInicio(request): 
-    carrous=Carousel.objects.all()
-    return render(request, 'PeliSeries/index.html', {'carrousel':carrous})
+    return render(request, 'PeliSeries/index.html')
 
-def register(request): 
-    form=UserCreationForm()
-    return render(request, 'PeliSeries/register.html', {'form':form})
 
-def login(request): 
-    return render(request, 'PeliSeries/login.html', {})
+def peliculas(request):
+    pelis = Peliserie.objects.filter(categoria=1)
+    return render(request, 'PeliSeries/peliculas.html', {'pelis':pelis})
 
+def series(request):
+    series = Peliserie.objects.filter(categoria=2)
+    return render(request, 'PeliSeries/series.html', {'series':series})
 
 def indexPelis(request):
     pelis=Peliserie.objects.filter(categoria=1)
@@ -29,7 +29,9 @@ def detailPeliserie(request,pk):
     similar =Peliserie.objects.exclude(pk=pk)
     return render(request, 'PeliSeries/detallePeliserie.html', {'peliserie': peliserie,'similar':similar})
 
-#crud consultas
+
+    
+#region views_dont_used
 def indexConsultas(request):
     if request.method == 'POST':
         form = FormConsulta(request.POST)
@@ -123,3 +125,11 @@ def EliminarCarousel(request,pk):
     peliserie=Peliserie.objects.all()
     consulta=Consulta.objects.all()
     return render(request, 'PeliSeries/mantenedor.html', {"carrousel":carousel,'peliserie':peliserie,'consulta':consulta})     
+
+def register(request): 
+    form=UserCreationForm()
+    return render(request, 'PeliSeries/register.html', {'form':form})
+
+def login(request): 
+    return render(request, 'PeliSeries/login.html', {})
+#endregion views_dont_used

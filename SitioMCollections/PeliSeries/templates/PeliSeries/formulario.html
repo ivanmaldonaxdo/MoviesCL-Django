@@ -1,0 +1,29 @@
+{% extends 'PeliSeries/base.html' %}
+
+<!-- #region Contenido -->
+<div id="contenedorform" class="cform">
+<form action="#" method="POST" class="form" id="formulario" autocomplete="on">
+    <div class="form-header">
+        <h1 class="form-title">Contacto</h1>
+    </div>
+    
+    <label for="nombre" class="form-label">Nombre: </label>
+    <input type="text" name="nombre" class="form-input animation_nav" placeholder="Escriba su nombre">
+    
+    <label for="pais" class="form-label">Pais </label>
+    <input type="text" class="form-input" name="pais" placeholder="Escriba su Pais (opcional)">
+    
+    <label for="correo" class="form-label">Email: </label>
+    <input type="email" class="form-input" name="correo" placeholder="Escriba su correo">
+    
+    <h3 class="comentario">Comentario</h3>
+    
+    <label for="asunto" class="form-label">Asunto: </label>
+    <input type="text" class="form-input" name="asunto" placeholder="Asunto del comentario">
+    
+    <label for="comentario" class="form-label">Comentario: </label>
+    <textarea name="comentario" class="form-textarea" rows="5" cols="20" placeholder="Comentario"></textarea>
+    <input type="submit" name="enviar" class="btn-submit" value="Enviar comentario">
+</form>
+</div>
+<!-- #endregion Contenido -->

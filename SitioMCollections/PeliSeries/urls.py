@@ -4,6 +4,9 @@ urlpatterns = [
     url(r'^$', views.indexInicio,name='home'),
     url(r'^Register/$', views.register, name="register"),
     url(r'^Login/$', views.login, name="login"),
+    url(r'^Peliculas/$', views.peliculas, name="peliculas"),
+    url(r'^BiblioSeries/$', views.series, name="series"), 
+
     url(r'^BiblioPelis/$', views.indexPelis, name="indexPelis"),
     url(r'^BiblioSeries/$', views.indexSeries, name="indexSeries"), 
     url(r'^detail/(?P<pk>[0-9]+)/$', views.detailPeliserie, name='detailPS'),
