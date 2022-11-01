@@ -1,0 +1,224 @@
+:root {
+    --main-color: #F5911D;
+    --second-color:#F5CD42;
+    --third-color:#1A1B30;
+    --titulo: 3.6rem;
+    --ancho:500px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/* From uiverse.io by @G4b413l  17FEFF*/
+.loader{
+    justify-self: center;
+}
+.scanner h1 {
+    color: transparent;
+    font-size: var(--titulo);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+    min-width: var(--ancho);
+    /* justify-self: center; */
+    /* text-align: center; */
+}
+
+.scanner h1::before {
+    content: "Novedades...";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /* border-right: 4px solid #17FEFF; */
+    overflow: hidden;
+    color: var(--main-color);
+    text-shadow: 0.1em 0.1em 0.1em black;
+    animation: load91371 8s ease 1s infinite alternate running;
+    text-align: center;
+    /* justify-self: center; */
+
+
+}
+
+@keyframes load91371 {
+    0%, 10%, 100% {
+        width: 0;
+    }
+
+    10%,20%,30%,40%,50%,60%,70%,80%,90%,100% {
+        border-right-color: transparent;
+    }
+
+    11%,21%,31%,41%,51%,61%,71%,81%,91% {
+        border-right-color: var(--main-color);
+    }
+
+    60%, 80% {
+        width: var(--ancho);
+    }
+}
+
+.boton-animado {
+    position: relative;
+    width: 143px;
+    height:50px;
+    /* opacity: 40%; */
+    align-self: center;
+    border: 1px solid cyan;
+    font-size: 16px;
+    border-radius: 1px;
+}
+.boton-animado div{
+    position: relative;
+    width: 0;
+    height: 48.59px;
+    background-color: cyan;
+}
+
+
+#progress-buton{
+    animation: barrita 6s ease 0.5s infinite alternate running;
+}
+
+@keyframes barrita{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+
+
+/* From uiverse.io by @nikk7007 #17C3B2 */
+.button-ds1 {
+    padding: 0.8em 1.8em;
+    border: 2px solid var(--second-color);
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    text-align: center;
+    /* text-transform: uppercase; */
+    font-size: 16px;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    font-family: 'Inconsolata', monospace;
+    transition: .3s;
+    z-index: 1;
+    /* font-family: inherit; */
+    color: var(--second-color);
+}
+
+   .button-ds1::before {
+        content: '';
+        width: 0;
+        height: 300%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        background:var(--second-color);
+        transition: .5s ease;
+        display: block;
+        z-index: -1;
+   }
+
+   .button-ds1:hover::before {
+        width: 105%;
+   }
+
+   .button-ds1:hover {
+    /* color: #111; */
+        color: var(--main-color);
+   }
+/* MEDIAQUERIES */
+@media (max-width: 500px) {
+    .scanner h1 {
+        font-size: 2.5rem;
+        --ancho:320px;
+
+    }
+
+}
+/* BOTON MENU */
+/* From uiverse.io by @gagan-gv */
+.btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.5s ease-in-out;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    background:var(--third-color);
+    color: #f5f5f5;
+    grid-area: menu;
+}
+  
+  .btn:hover {
+    box-shadow: 0 0 20px 0px #2e2e2e3a;
+  }
+  
+  .btn .icon {
+    position: absolute;
+    height: 40px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  
+  .btn .text {
+    transform: translateX(55px);
+  }
+  
+  .btn:hover .icon {
+    width: 175px;
+  }
+  
+  .btn:hover .text {
+    transition: all 0.5s;
+    opacity: 0;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active .icon {
+    transform: scale(0.85);
+  }
+
+/* @media screen and (max-width:780px){
+    .btn{
+        display: flex;
+    }
+    
+} */
+  /* @media (min-height:800px) {
+}
+
+@media (max-height:800px) {
+    .btn{
+        display: flex;
+    }
+} */
+@media screen and (max-width:896px) and (orientation:landscape){
+    .scanner h1{
+        font-size: 2.6rem;
+
+    }
+}
+@media (min-width: 780px) {
+    .btn{
+        display: none;
+    }
+
+}
