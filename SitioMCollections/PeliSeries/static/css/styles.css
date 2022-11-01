@@ -122,7 +122,7 @@ body {
 
 .contenido {
     grid-column: span 3;
-    /* background-image: url(../SVG/blurry-gradient-haikei.svg); */
+    background: url(../SVG/blurry-gradient-haikei.svg);
     /* background: url("{% static '/SVG/blurry-gradient-haikei.svg' %}"); */
  
     /* background-image: url('../static/SVG/blurry-gradient-haikei.svg'); */
