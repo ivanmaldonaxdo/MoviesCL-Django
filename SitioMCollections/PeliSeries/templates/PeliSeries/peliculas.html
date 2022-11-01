@@ -1,59 +1,20 @@
 {% extends 'PeliSeries/base.html' %}
-{% block content %}
-        <div class="loader">
-                <div class="scanner">
-                  <h1>Novedades...</h1>
-                </div>
-              </div>
-            <section class="grid-articulos">
-                <!-- ITEM 1 -->
-                <article class="item">
-                    <img src="IMG/Pelis/iron_man_3.jpg" alt="" srcset="" class="box">
-                    <h3>Iron Man 3</h3>   
-                    <!-- <button class="alinea-buton button-ds1">Iron Man 3
-                    </button> -->
-                </article>
-
-                <!-- ITEM 2 -->
-                <article class="item">
-                    <img src="IMG/Pelis/deadpool.jpg" alt="" srcset="">
-                    <h3>Dead Pool</h3>
-                 
-
-                </article>
-
-                <!-- ITEM 3 -->
-                <article class="item">
-                    <img src="IMG/Pelis/joker.jpg" alt="" srcset="">
-                    <h3>Joker</h3>
-                    <!-- <button class="alinea-buton button-ds1">una pareja idiotas
-                    </button> -->
-                </article>
-
-                <!-- ITEM 4 -->
-                <article class="item">
-                    <img src="IMG/Pelis/star_wars.jpg" alt="" srcset="">
-                    <h3>Star Wars</h3>
-                    
-
-                </article>
-
-                <!-- ITEM 5 -->
-                <article class="item">
-                    <img src="IMG/Pelis/una_pareja_idiotas.jpg" alt="" srcset="">
-                    <h3>Una Pareja De Idiotas</h3>
-                </article>
-                 <!-- ITEM 6 -->
-                 <article class="item">
-                    <img src="IMG/Pelis/spider_men.jpg" alt="" srcset="">
-                    <h3>Spiderman No Way Home</h3>
-
-                </article>
-                <!-- ITEM 6 -->
-                <article class="item">
-                    <img src="IMG/Pelis/dragon_ball_super.jpg" alt="" srcset="">
-                    <h3>Dragon Ball Super: Super Hero </h3>
-
-                </article>
-            </section>
+{% load static %}
+{% block main %}
+    <div class="loader">
+        <div class="scanner">
+            <h1>Novedades...</h1>
+        </div>
+    </div>
+    <section class="grid-articulos">
+        <!-- ITEM 1 -->
+        {% for peli in pelis %}
+        <article class="item">
+            <img src="{{ peli.caratula.url }}" alt="" srcset="" class="box">
+            <h3>{{peli.titulo}}</h3>   
+            <!-- <button class="alinea-buton button-ds1">Iron Man 3
+            </button> -->
+        </article>
+        {% endfor %}
+    </section>
 {% endblock %}
