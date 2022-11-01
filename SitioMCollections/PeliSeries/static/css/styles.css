@@ -17,11 +17,6 @@ h2,h3,p{
     padding: 0;
 }
 
-@font-face {
-    font-family: "kabel";
-    src: url(../FONTS/kabel.ttf);
-}
-
 body {
     background: #e9ecf4;
     color: black;
