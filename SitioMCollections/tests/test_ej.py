@@ -1,12 +1,12 @@
 import pytest 
 from datetime import datetime
-# print(datetime.now())
-# # @pytest.mark.slow
+print(datetime.now())
+# @pytest.mark.slow
 # def test_example_pass():
 #     print("TEST 1")
 #     assert 1 == 1
 
-# # @pytest.mark.xfail
+# @pytest.mark.xfail
 # # @pytest.mark.skip
 # def test_example_fail():
 #     print(AssertionError())
