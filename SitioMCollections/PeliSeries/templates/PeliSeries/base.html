@@ -40,6 +40,7 @@
                     {% url 'home'  as hm %}
                     {% url 'peliculas'  as pel %}
                     {% url 'series'  as ser %}
+                    {% url 'apiMovies'  as mov %}
                     {% url 'formulario'  as form %}
                     {% comment %} "{% if request.get_full_path == hm %} activada {% endif %}" {% endcomment %}
                     {% comment %} <li><a href="{% url 'home' %}" class="animation_nav actived">Inicio</a></li> {% endcomment %}
@@ -57,6 +58,11 @@
                     <li>
                         <a href="{% url 'series' %}" class="{% if request.get_full_path == ser %} animation_nav actived {% else %} animation_nav {% endif %}" >
                             Series
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'apiMovies' %}" class="{% if request.get_full_path == mov %} animation_nav actived {% else %} animation_nav {% endif %}" >
+                            MoviesDB
                         </a>
                     </li>
                     <!-- <li><a href="indexNoticias.html" class="animation_nav">Noticias</a></li> -->

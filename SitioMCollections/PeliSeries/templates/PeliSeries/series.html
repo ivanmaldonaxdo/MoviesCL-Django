@@ -1,0 +1,20 @@
+{% extends 'PeliSeries/base.html' %}
+{% load static %}
+{% block main %}
+    <div class="loader">
+        <div class="scanner">
+            <h1>Novedades...</h1>
+        </div>
+    </div>
+    <section class="grid-articulos">
+        <!-- ITEM 1 -->
+        {% for ser in series %}
+        <article class="item">
+            <img src="{{ ser.caratula.url }}" alt="" srcset="" class="box">
+            <h3>{{ser.titulo}}</h3>   
+            <!-- <button class="alinea-buton button-ds1">Iron Man 3
+            </button> -->
+        </article>
+        {% endfor %}
+    </section>
+{% endblock %}

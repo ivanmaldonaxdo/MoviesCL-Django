@@ -16,13 +16,9 @@ def series(request):
     series = Peliserie.objects.filter(categoria=2)
     return render(request, 'PeliSeries/series.html', {'series':series})
 
-def indexPelis(request):
-    pelis=Peliserie.objects.filter(categoria=1)
-    return render(request, 'PeliSeries/indexPelis.html', {'pelis':pelis})
+def apiMovies(request):
+    return render(request, 'PeliSeries/API_MOVIES.html')
 
-def indexSeries(request):
-    series=Peliserie.objects.filter(categoria=2)
-    return render(request, 'PeliSeries/indexSeries.html', {'series':series})
 
 def detailPeliserie(request,pk):
     peliserie=get_object_or_404(Peliserie, pk=pk)
