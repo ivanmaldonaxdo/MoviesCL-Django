@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from .forms import FormPeliserie,FormCarrousel,FormConsulta
 from .models import Categoria,Peliserie,Carousel,Usuario,Consulta
+from django.http import request,JsonResponse
+
 # Create your views here.
 def indexInicio(request): 
     return render(request, 'PeliSeries/index.html')
@@ -129,3 +131,15 @@ def register(request):
 def login(request): 
     return render(request, 'PeliSeries/login.html', {})
 #endregion views_dont_used
+
+def get_genres(request):
+    q_cliente = request.GET.get('id_cli',None)
+    print(q_cliente)
+    # sucursales = list( Sucursal.objects.raw(
+    #     '''SELECT "nom_cli" from public.fn_select_sucur(%s)''',[q_cliente])
+    # ) 
+    #print(sucursales)
+    data = { 
+        "Dataso":1
+    }
+    return JsonResponse(data)

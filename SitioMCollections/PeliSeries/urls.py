@@ -18,4 +18,6 @@ urlpatterns = [
     url(r'^Carousel/(?P<pk>[0-9]+)/delete/$', views.EliminarCarousel, name='delete_carousel'),
     url(r'^Consultas/$', views.indexConsultas, name='consultas'),
     url(r'^Consultas/(?P<pk>[0-9]+)/delete/$', views.EliminarConsulta, name='delete_consulta'),
+    url(r'^get_genres/$', views.get_genres, name='get_genres'),
+
 ]
