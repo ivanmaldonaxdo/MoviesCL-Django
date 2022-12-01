@@ -145,3 +145,18 @@ def get_genres(request):
         "Dataso":1
     }
     return JsonResponse(genres)
+def get_movies(request):
+    query = request.GET.get('query',None)
+    movies = movieDB.search_multi(query)
+    data = { 
+        "Dataso":1
+    }
+    return JsonResponse(movies)    
+
+def get_top_movies(request):
+    query = request.GET.get('query',None)
+    movies = movieDB.search_multi(query)
+    data = { 
+        "Dataso":1
+    }
+    return JsonResponse(movies)    

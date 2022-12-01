@@ -235,9 +235,9 @@
   }
   /* styling of whole input container */
   .formApi {
-
+    /* float: right; */
     --timing: 0.3s;
-    --width-of-input: 200px;
+    --width-of-input: 170px;
     --height-of-input: 40px;
     --border-height: 2px;
     --input-bg: #fff;
@@ -258,7 +258,7 @@
     -webkit-transition: border-radius 0.5s ease;
     transition: border-radius 0.5s ease;
     background: var(--input-bg,#fff);
-    /* padding-right: 100px; */
+    margin-right: 240px;
 
     
   }
@@ -350,6 +350,9 @@
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
+    /* margin-left: 200px; */
+
+    /* margin-left: 200px; */
     /* width: 30px; */
 
   }
@@ -365,10 +368,12 @@
     transform: translateY(-1px);
   }
   .busqueda {
+    width: 300px;
     justify-self: center;
     display: grid;
     grid-template-columns: 2;
     margin-top: 30px;
+    column-gap: 40px;
 
   }
   /* .box */
@@ -376,7 +381,7 @@
     /* justify-self: right; */
     position: absolute;
     margin-top: -0.2vh;
-    margin-left: 27.5vh;
+    margin-left: 220px;
 
     /* display: block; */
   }

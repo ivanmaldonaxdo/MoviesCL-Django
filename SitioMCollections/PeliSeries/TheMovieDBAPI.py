@@ -23,3 +23,24 @@ class MovieDB:
         response = self.get_request(url,params)
         data = response.json()
         return data
+
+    def search_multi(self,query = None):
+        endpoint = "/search/movie"
+        params = {
+            "api_key": self.api_key,
+            "query":query
+        }
+        url =  "{}{}" .format(self.end_point_base,endpoint)
+        response = self.get_request(url,params)
+        data = response.json()
+        return data
+    def search_top_rated(self):
+        endpoint = "/search/movie"
+        params = {
+            "api_key": self.api_key,
+            "query":query
+        }
+        url =  "{}{}" .format(self.end_point_base,endpoint)
+        response = self.get_request(url,params)
+        data = response.json()
+        return data

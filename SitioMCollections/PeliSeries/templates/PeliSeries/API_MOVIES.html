@@ -26,14 +26,13 @@
         </button>
     </form> {% endcomment %}
 
-    <section class="grid-articulos">
+    <section class="grid-articulos" id = "grid_artics">
         <!-- ITEM 1 -->
         {% comment %} {% for peli in pelis %}
         <article class="item">
             <img src="{{ peli.caratula.url }}" alt="" srcset="" class="box">
             <h3>{{peli.titulo}}</h3>   
-            <!-- <button class="alinea-buton button-ds1">Iron Man 3
-            </button> -->
+           
         </article>
         {% endfor %} {% endcomment %}
     </section>
