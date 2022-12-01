@@ -20,7 +20,6 @@ function pasarIdCli(idCli) {
 }
 
 function getMovies(query) {
-
     // let data_movies = [] 
     $.ajax({
         type: "GET",
@@ -37,7 +36,26 @@ function getMovies(query) {
             
             data_movies = data_array.results;
             Array.from(data_movies).map(p => createPeli(p));
-
+            // any process in data
+            // alert("successfull")
+        },
+        failure: function () {
+            console.log("fallo");
+            // alert("failure");
+        }
+    });
+}
+function getTopMovies(query) {
+    // let data_movies = [] 
+    $.ajax({
+        type: "GET",
+        url: '/get_top_movies',
+        dataType: "json",
+        success: function (data) {
+            let  data_array =  Object.create(data);
+            console.table(data_array.results);
+            data_movies = data_array.results;
+            Array.from(data_movies).map(p => createPeli(p));
             // any process in data
             // alert("successfull")
         },
@@ -48,14 +66,14 @@ function getMovies(query) {
     });
 }
 
-document.getElementById("pelicula").value = "scarface"
+getTopMovies();
+
+document.getElementById("pelicula").value = ""
 document.getElementById("buscar").addEventListener("click",function (e) {
     e.preventDefault();
     peli = document.getElementById("pelicula").value
-    // console.log(peli);
     getMovies(peli);
-    // console.log(movies);
-    // pasarIdCli(1);
+ 
 }
 
 
@@ -71,7 +89,6 @@ function getUrlmage(path) {
 function createPeli(peli) 
 {
     const grid = document.querySelector("#grid_artics");
-
     let article= `<article class="item">
                     <img src="${getUrlmage(peli.poster_path)}" alt="" srcset="" class="box">
                     <h3>${peli.title}</h3>   

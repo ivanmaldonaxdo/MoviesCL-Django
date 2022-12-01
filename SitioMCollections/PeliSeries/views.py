@@ -5,7 +5,7 @@ from .forms import FormPeliserie,FormCarrousel,FormConsulta
 from .models import Categoria,Peliserie,Carousel,Usuario,Consulta
 from django.http import request,JsonResponse
 from .TheMovieDBAPI import MovieDB
-movieDB = MovieDB("8f56a9bedde7f726d2cd993b3971efe3", "https://api.themoviedb.org/3")
+
 # Create your views here.
 def indexInicio(request): 
     return render(request, 'PeliSeries/index.html')
@@ -133,30 +133,17 @@ def login(request):
     return render(request, 'PeliSeries/login.html', {})
 #endregion views_dont_used
 
+movieDB = MovieDB("8f56a9bedde7f726d2cd993b3971efe3", "https://api.themoviedb.org/3")
+
 def get_genres(request):
-    # q_cliente = request.GET.get('id_cli',None)
-    # print(q_cliente)
-    # sucursales = list( Sucursal.objects.raw(
-    #     '''SELECT "nom_cli" from public.fn_select_sucur(%s)''',[q_cliente])
-    # ) 
-    #print(sucursales)
     genres = movieDB.search_genres()
-    data = { 
-        "Dataso":1
-    }
     return JsonResponse(genres)
+
 def get_movies(request):
     query = request.GET.get('query',None)
     movies = movieDB.search_multi(query)
-    data = { 
-        "Dataso":1
-    }
     return JsonResponse(movies)    
 
 def get_top_movies(request):
-    query = request.GET.get('query',None)
-    movies = movieDB.search_multi(query)
-    data = { 
-        "Dataso":1
-    }
+    movies = movieDB.search_top_rated()
     return JsonResponse(movies)    

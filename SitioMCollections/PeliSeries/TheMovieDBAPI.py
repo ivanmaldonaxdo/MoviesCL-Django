@@ -1,10 +1,6 @@
 import requests
-from requests.auth import HTTPBasicAuth
 import json
 from requests.adapters import HTTPAdapter, Retry
-import time
-import re
-from django.utils import timezone
 
 class MovieDB:
     def __init__(self,api_key,url):
@@ -34,11 +30,11 @@ class MovieDB:
         response = self.get_request(url,params)
         data = response.json()
         return data
+
     def search_top_rated(self):
-        endpoint = "/search/movie"
+        endpoint = "/movie/top_rated"
         params = {
-            "api_key": self.api_key,
-            "query":query
+            "api_key": self.api_key
         }
         url =  "{}{}" .format(self.end_point_base,endpoint)
         response = self.get_request(url,params)
